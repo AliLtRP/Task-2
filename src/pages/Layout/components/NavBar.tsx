@@ -12,10 +12,10 @@ const NavBar = () => {
         </Link>
 
         <CustomButton
-          title="Sign in"
+          title="Dashboard"
           buttonType="button"
           style="text-primary-blue rounded-full bg-white min-w-[130px]"
-          handleClick={() => navigator("/sign-in")}
+          handleClick={() => navigator("/dashboard")}
         />
       </nav>
     </header>

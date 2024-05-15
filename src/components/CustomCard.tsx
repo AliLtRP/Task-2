@@ -6,7 +6,7 @@ const CustomCard: React.FC<{ children: ReactNode; style: string }> = ({
 }) => {
   return (
     <div
-      className={`h-64 w-60 max-w-sm border border-gray-200 rounded-lg shadow bg-blac ${style}`}
+      className={`h-80 w-64 max-w-sm border border-gray-200 rounded-lg shadow ${style}`}
     >
       {children}
     </div>

@@ -4,6 +4,9 @@ import { StoreApi } from "../../../types";
 import useApi from "../../../utils/hooks/useApi";
 import CustomTitle from "../../../components/CustomTitle";
 import Rating from "../../../components/Rating";
+import Wrapper from "../../../components/Wrapper";
+import Price from "../../../components/Price";
+import CustomButton from "../../../components/CustomButton";
 
 const Home = () => {
   const { data, loading } = useApi({
@@ -17,24 +20,35 @@ const Home = () => {
   }
 
   return (
-    <div className="py-20">
+    <div className="py-10 flex justify-center flex-wrap gap-4">
       {(data as Array<StoreApi>)?.map((v) => {
         return (
           <CustomCard style="">
             <Link to={"/"}>
-              <div className="w-full h-[55%] p-4">
+              <div className="w-full h-[50%] p-4">
                 <img
                   src={v.image}
                   alt="items"
                   className="object-scale-down w-full h-full"
                 />
               </div>
+            </Link>
 
+            <Wrapper style="pl-4 flex flex-col gap-[1px]">
               <CustomTitle title={v.title} />
               <Rating />
-              <div>price</div>
-              <div>button</div>
-            </Link>
+            </Wrapper>
+
+            <Wrapper style="flex justify-between px-4 py-2 items-center">
+              <Price price={v.price} />
+              <CustomButton
+                title="Add to cart"
+                disable={false}
+                style="bg-blue-700 rounded-lg font-medium text-center text-sm text-white px-4 py-2.5"
+                buttonType="button"
+                handleClick={() => {}}
+              />
+            </Wrapper>
           </CustomCard>
         );
       })}

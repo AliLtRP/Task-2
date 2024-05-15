@@ -2,8 +2,8 @@ import { CiStar } from "react-icons/ci";
 
 const Rating = () => {
   return (
-    <div className="flex gap-2">
-      <div className="flex items-center pl-4 gap-0">
+    <div className="flex items-start gap-1">
+      <div className="flex items-center gap-0">
         <CiStar size={18} />
         <CiStar size={18} />
         <CiStar size={18} />

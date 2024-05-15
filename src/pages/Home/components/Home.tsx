@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CustomCard from "../../../components/CustomCard";
 import { storeApi } from "../../../types";
 import useApi from "../../../utils/hooks/useApi";
@@ -15,9 +16,20 @@ const Home = () => {
 
   return (
     <div className="py-20">
-      <CustomCard />
       {(data as Array<storeApi>)?.map((v) => {
-        return <img src={v.image} alt="" />;
+        return (
+          <CustomCard style="">
+            <Link to={"/"}>
+              <div className="w-full h-[60%] p-4">
+                <img
+                  src={v.image}
+                  alt="items"
+                  className="object-scale-down w-full h-full"
+                />
+              </div>
+            </Link>
+          </CustomCard>
+        );
       })}
     </div>
   );

@@ -12,12 +12,17 @@ export interface ButtonProps {
   handleClick: () => void;
 }
 
-export interface storeApi {
+export interface StoreApi {
   category: string;
   description: string;
   id: number;
   image: string;
   price: number;
   rating: { rate: number; count: number };
+  title: string;
+}
+
+export interface CustomTitleProps {
+  style?: string;
   title: string;
 }

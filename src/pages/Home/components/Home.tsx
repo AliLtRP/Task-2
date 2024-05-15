@@ -1,3 +1,4 @@
+import { storeApi } from "../../../types";
 import useApi from "../../../utils/hooks/useApi";
 
 const Home = () => {
@@ -13,7 +14,13 @@ const Home = () => {
 
   console.log(data);
 
-  return <div></div>;
+  return (
+    <div className="py-20">
+      {(data as Array<storeApi>)?.map((v) => {
+        return v.description;
+      })}
+    </div>
+  );
 };
 
 export default Home;

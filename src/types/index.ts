@@ -3,3 +3,21 @@ export interface useApiProps {
   method: string;
   payload?: string | object;
 }
+
+export interface ButtonProps {
+  title: string;
+  disable?: boolean;
+  buttonType?: "button" | "submit" | "reset";
+  style?: string;
+  handleClick: () => void;
+}
+
+export interface storeApi {
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: { rate: number; count: number };
+  title: string;
+}

@@ -3,6 +3,7 @@ import CustomCard from "../../../components/CustomCard";
 import { StoreApi } from "../../../types";
 import useApi from "../../../utils/hooks/useApi";
 import CustomTitle from "../../../components/CustomTitle";
+import Rating from "../../../components/Rating";
 
 const Home = () => {
   const { data, loading } = useApi({
@@ -30,6 +31,9 @@ const Home = () => {
               </div>
 
               <CustomTitle title={v.title} />
+              <Rating />
+              <div>price</div>
+              <div>button</div>
             </Link>
           </CustomCard>
         );

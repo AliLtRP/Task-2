@@ -1,3 +1,4 @@
+import CustomCard from "../../../components/CustomCard";
 import { storeApi } from "../../../types";
 import useApi from "../../../utils/hooks/useApi";
 
@@ -12,12 +13,11 @@ const Home = () => {
     return <div>loading</div>;
   }
 
-  console.log(data);
-
   return (
     <div className="py-20">
+      <CustomCard />
       {(data as Array<storeApi>)?.map((v) => {
-        return v.description;
+        return <img src={v.image} alt="" />;
       })}
     </div>
   );

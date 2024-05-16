@@ -13,7 +13,7 @@ const CustomDashboardCrud = ({
       <CustomButton
         title={title}
         style="bg-blue-700 rounded-lg font-medium text-center text-sm text-white px-4 py-2.5"
-        handleClick={() => operationFn}
+        handleClick={() => operationFn()}
       />
     </Wrapper>
   );

@@ -18,8 +18,13 @@ export interface StoreApi {
   id: number;
   image: string;
   price: number;
-  rating: { rate: number; count: number };
+  rating: ItemRating;
   title: string;
+}
+
+export interface ItemRating {
+  rate: number;
+  count: number;
 }
 
 export interface CustomTitleProps {

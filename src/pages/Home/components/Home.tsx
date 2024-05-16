@@ -39,7 +39,7 @@ const Home = ({ isDashboard }: { isDashboard?: boolean }) => {
 
             <Wrapper style="pl-4 flex flex-col gap-[1px]">
               <CustomTitle title={v.title} />
-              <Rating />
+              <Rating rating={v.rating} />
             </Wrapper>
 
             <Wrapper style="flex justify-between px-4 py-2 items-center flex-wrap">
@@ -55,13 +55,17 @@ const Home = ({ isDashboard }: { isDashboard?: boolean }) => {
               {isDashboard && (
                 <CustomDashboardCrud
                   title="Update Item"
-                  operationFn={() => navigator("/update/item")}
+                  operationFn={() =>
+                    navigator("/update/item", { state: { v } })
+                  }
                 />
               )}
               {isDashboard && (
                 <CustomDashboardCrud
                   title="Delete Item"
-                  operationFn={() => navigator("/remove/item")}
+                  operationFn={() =>
+                    navigator("/remove/item", { state: { v } })
+                  }
                 />
               )}
             </Wrapper>

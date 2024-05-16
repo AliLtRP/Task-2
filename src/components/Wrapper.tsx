@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-const Wrapper: React.FC<{ children: ReactNode; style: string }> = ({
+const Wrapper: React.FC<{ children: ReactNode; style?: string }> = ({
   children,
   style,
 }) => {

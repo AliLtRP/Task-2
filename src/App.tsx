@@ -2,6 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Dashboard, Home } from "./pages/Home";
 import { Layout } from "./pages/Layout";
+import { RemoveItem, UpdateItem } from "./pages/dashboard/index";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/update/item" element={<UpdateItem />} />
+        <Route path="/remove/item" element={<RemoveItem />} />
       </Routes>
     </Layout>
   );

@@ -1,5 +1,11 @@
+import Home from "./Home";
+
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <Home isDashboard={true} />
+    </div>
+  );
 };
 
 export default Dashboard;

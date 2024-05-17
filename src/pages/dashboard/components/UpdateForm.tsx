@@ -35,6 +35,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
         <Wrapper>
           <CustomInput
             title="Item Title"
+            type="text"
             placeHolder="Men Casual shirt"
             registerField={register}
             registerOption="title"
@@ -42,6 +43,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
           <Wrapper style="w-full flex gap-4">
             <CustomInput
               title="Item rate"
+              type="number"
               style="w-full"
               placeHolder="3.5"
               registerField={register}
@@ -49,6 +51,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
             />
             <CustomInput
               title="Item count"
+              type="number"
               style="w-full"
               placeHolder="120"
               registerField={register}
@@ -58,6 +61,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
 
           <CustomInput
             title="price"
+            type="number"
             placeHolder="20"
             registerField={register}
             registerOption="price"
@@ -65,6 +69,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
 
           <CustomInput
             title="category"
+            type="text"
             placeHolder="Men Clothes"
             registerField={register}
             registerOption="category"
@@ -72,6 +77,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
 
           <CustomInput
             title="description"
+            type="text"
             placeHolder="Recommended for FAT people"
             registerField={register}
             registerOption="description"
@@ -79,6 +85,7 @@ const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
 
           <CustomInput
             title="image"
+            type="text"
             placeHolder="image url"
             registerField={register}
             registerOption="image"

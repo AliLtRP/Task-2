@@ -32,4 +32,12 @@ export interface CustomTitleProps {
   title: string;
 }
 
-export type RegisterOptions = keyof StoreApi;
+type NestedKeys<T> = {
+  [K in keyof T]: K extends string
+    ? T[K] extends object
+      ? `${K}` | `${K}.${NestedKeys<T[K]>}`
+      : `${K}`
+    : never;
+}[keyof T];
+
+export type RegisterOptions = NestedKeys<StoreApi>;

@@ -23,56 +23,66 @@ const Home = ({ isDashboard }: { isDashboard?: boolean }) => {
   }
 
   return (
-    <div className="py-10 flex justify-center flex-wrap gap-4">
-      {(data as Array<StoreApi>)?.map((v) => {
-        return (
-          <CustomCard style={isDashboard ? "h-96" : ""}>
-            <Link to={"/"}>
-              <div className="w-full h-[50%] p-4">
-                <img
-                  src={v.image}
-                  alt="items"
-                  className="object-scale-down w-full h-full"
-                />
-              </div>
-            </Link>
+    <>
+      {isDashboard && (
+        <CustomButton
+          title="Add New Item"
+          style="mt-4 bg-green-700 rounded-lg font-medium text-center text-sm text-white px-4 py-2.5"
+          handleClick={() => navigator("/add/item")}
+        />
+      )}
 
-            <Wrapper style="pl-4 flex flex-col gap-[1px]">
-              <CustomTitle title={v.title} />
-              <Rating rating={v.rating} />
-            </Wrapper>
+      <div className="py-10 flex justify-center flex-wrap gap-4">
+        {(data as Array<StoreApi>)?.map((v) => {
+          return (
+            <CustomCard style={isDashboard ? "h-96" : ""}>
+              <Link to={"/"}>
+                <div className="w-full h-[50%] p-4">
+                  <img
+                    src={v.image}
+                    alt="items"
+                    className="object-scale-down w-full h-full"
+                  />
+                </div>
+              </Link>
 
-            <Wrapper style="flex justify-between px-4 py-2 items-center flex-wrap">
-              <Price price={v.price} />
-              <CustomButton
-                title="Add to cart"
-                disable={false}
-                style="bg-blue-700 rounded-lg font-medium text-center text-sm text-white px-4 py-2.5"
-                buttonType="button"
-                handleClick={() => {}}
-              />
+              <Wrapper style="pl-4 flex flex-col gap-[1px]">
+                <CustomTitle title={v.title} />
+                <Rating rating={v.rating} />
+              </Wrapper>
 
-              {isDashboard && (
-                <CustomDashboardCrud
-                  title="Update Item"
-                  operationFn={() =>
-                    navigator("/update/item", { state: { v } })
-                  }
+              <Wrapper style="flex justify-between px-4 py-2 items-center flex-wrap">
+                <Price price={v.price} />
+                <CustomButton
+                  title="Add to cart"
+                  disable={false}
+                  style="bg-blue-700 rounded-lg font-medium text-center text-sm text-white px-4 py-2.5"
+                  buttonType="button"
+                  handleClick={() => {}}
                 />
-              )}
-              {isDashboard && (
-                <CustomDashboardCrud
-                  title="Delete Item"
-                  operationFn={() =>
-                    navigator("/remove/item", { state: { v } })
-                  }
-                />
-              )}
-            </Wrapper>
-          </CustomCard>
-        );
-      })}
-    </div>
+
+                {isDashboard && (
+                  <CustomDashboardCrud
+                    title="Update Item"
+                    operationFn={() =>
+                      navigator("/update/item", { state: { v } })
+                    }
+                  />
+                )}
+                {isDashboard && (
+                  <CustomDashboardCrud
+                    title="Delete Item"
+                    operationFn={() =>
+                      navigator("/remove/item", { state: { v } })
+                    }
+                  />
+                )}
+              </Wrapper>
+            </CustomCard>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

@@ -6,17 +6,18 @@ import Wrapper from "../../../components/Wrapper";
 import useApi from "../../../utils/hooks/useApi";
 import { useState } from "react";
 
-const UpdateForm = ({ id }: { id: number }) => {
+const UpdateForm = ({ id, method }: { id?: number; method?: string }) => {
   const [data, setData] = useState<StoreApi>();
   const { register, handleSubmit } = useForm<StoreApi>();
   const apiResponse = useApi({
     payload: data,
-    url: `/products/${id}`,
-    method: "PUT",
+    url: id ? `/products/${id}` : "/products",
+    method: method || "PUT",
   });
 
   const onSubmit: SubmitHandler<StoreApi> = (formData) => {
     setData(formData);
+    console.log(method);
     console.log(formData);
     console.log(apiResponse);
 
@@ -25,7 +26,7 @@ const UpdateForm = ({ id }: { id: number }) => {
       return;
     }
 
-    alert("item get updated");
+    alert(method === "POST" ? "add item successfully" : "item get updated");
   };
 
   return (

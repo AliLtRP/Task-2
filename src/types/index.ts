@@ -1,7 +1,7 @@
 export interface useApiProps {
   url: string;
   method: string;
-  payload?: string | object;
+  payload?: string | object | null;
 }
 
 export interface ButtonProps {
@@ -31,3 +31,5 @@ export interface CustomTitleProps {
   style?: string;
   title: string;
 }
+
+export type RegisterOptions = keyof StoreApi;

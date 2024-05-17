@@ -12,7 +12,7 @@ const Rating = ({ rating }: { rating: ItemRating }) => {
         <CiStar size={18} />
       </div>
       <div className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">
-        {rating.count}
+        {rating.rate}
       </div>
     </div>
   );

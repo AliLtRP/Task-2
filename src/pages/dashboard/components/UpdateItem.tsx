@@ -6,10 +6,11 @@ import Rating from "../../../components/Rating";
 import Price from "../../../components/Price";
 import CustomButton from "../../../components/CustomButton";
 import UpdateForm from "./UpdateForm";
+import { StoreApi } from "../../../types";
 
 const UpdateItem = () => {
   const { state } = useLocation();
-  const { v } = state;
+  const { v }: { v: StoreApi } = state;
 
   return (
     <Wrapper style="flex flex-col gap-16 md:flex-row">
@@ -26,7 +27,7 @@ const UpdateItem = () => {
 
         <Wrapper style="pl-4 flex flex-col gap-[1px]">
           <CustomTitle title={v.title} />
-          <Rating />
+          <Rating rating={v.rating} />
         </Wrapper>
 
         <Wrapper style="flex justify-between px-4 py-2 items-center flex-wrap">
@@ -41,7 +42,7 @@ const UpdateItem = () => {
         </Wrapper>
       </CustomCard>
 
-      <UpdateForm />
+      <UpdateForm id={v.id} />
     </Wrapper>
   );
 };

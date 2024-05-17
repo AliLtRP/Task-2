@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import client from "../../api/axios";
-import { storeApi, useApiProps } from "../../types";
-import { AxiosResponse } from "axios";
+import { useApiProps } from "../../types";
 
 const useApi = <T,>({ payload, url, method }: useApiProps) => {
-  const [data, setData] = useState<null | Array<storeApi> | AxiosResponse<T>>(
-    null
-  );
+  const [data, setData] = useState<T | null>(null);
   const [status, setStatus] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<null | string>(null);
 
   useEffect(() => {
+    if (method !== "GET" && payload === undefined) return;
+
     setLoading(true);
     client
       .request({ data: payload, method, url })
